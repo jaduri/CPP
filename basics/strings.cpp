@@ -1,15 +1,20 @@
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 int replaceText(string sentence, string s1, string s2){
 
     cout << sentence << endl;
 
-    int pos = sentence.find(s1);
-    int places = s1.length() - 1;
+    int start = sentence.find(s1);
+    int length = s1.length();
 
-    sentence.replace(pos, places, s2);
+    sentence.replace(start, length, s2);
     cout << sentence << endl;
+
+    ofstream out("output.txt");
+
+    out << sentence << endl;
 
     return 0;
 }
